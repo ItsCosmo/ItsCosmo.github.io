@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Link} from 'react-router';
+import React, { Component } from 'react';
+import { Link, IndexLink } from 'react-router';
 
 require('./Header.scss');
 
@@ -9,11 +9,14 @@ class Header extends Component {
     return (
       <div className="home">
         <div className="header">
-          <div>The Kleimeyer Group</div>
+          <div>Router Test</div>
           <div className="tagline">representing excellence since 1959</div>
         </div>
 
-        <Link to="/auto">Auto</Link>
+        <ul>
+          <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
+          <li><Link to="/auto" activeClassName="active">Auto</Link></li>
+        </ul>
       </div>
     )
   }
