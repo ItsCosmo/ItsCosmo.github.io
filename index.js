@@ -1,23 +1,28 @@
 import React, {Component} from "react";
-import ReactDOM from "react-dom";
-import Lease from "./src/components/Lease";
-import Config from "./src/components/Config";
+import {render} from "react-dom";
+import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router'
+import Auto from "./src/components/Auto";
+import Home from "./src/components/Home";
+import Header from "./src/components/Header";
 
-require('./Lease.scss');
+require('./App.scss');
 
-class LeaseApp extends Component {
-
+class App extends Component {
   render() {
     return (
-      <div className="leaseapp">
-        <div className="title">Auto Lease Tracker</div>
-        <div className="content">
-          <Config />
-          <Lease />
-        </div>
-      </div>
+      <div className="app">
+        <Header />
+        {this.props.children}
+      </div >
     )
   }
 }
 
-ReactDOM.render(<LeaseApp />, document.getElementById("root"));
+render((
+  <Router history={browserHistory}>
+    <Route path="/" component={App}>
+      <IndexRoute component={Home} />
+      <Route path="auto" component={Auto} />
+    </Route>
+  </Router>
+), document.getElementById("root"));
