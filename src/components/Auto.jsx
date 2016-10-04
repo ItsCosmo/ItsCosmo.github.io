@@ -6,6 +6,10 @@ require('./Auto.scss');
 
 class Auto extends Component {
 
+  componentDidMount() {
+    document.title = "The Kleimeyer Group - @Auto"
+  }
+
   render() {
     return (
       <div className="leaseapp">
