@@ -9,7 +9,7 @@ class Header extends Component {
     return (
       <div className="home">
         <div className="header">
-          <div>Router Test</div>
+          <div>The Kleimeyer Group</div>
           <div className="tagline">representing excellence since 1959</div>
         </div>
 
