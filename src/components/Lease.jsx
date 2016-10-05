@@ -1,85 +1,128 @@
-import React from "react";
+import React, {Component} from 'react';
+import Results from './Results';
+
 import {
+  setInitialMileage,
   getInitialMileage,
+  setTodayMileage,
+  getTodayMileage,
+  setVehicleName,
   getVehicleName,
+  setLeaseDate,
   getLeaseDate,
-  getMileageAllotment,
+  setLeaseTerm,
   getLeaseTerm,
-  getTodayMileage
+  setMileageAllotment,
+  getMileageAllotment
 } from './configuration';
 
-const millisPerDay = 24 * 60 * 60 * 1000;
+class Config extends Component {
 
-const Lease = () => {
-
-  const numberOfDays = () => {
-    return Math.ceil((Date.now() - Date.parse(getLeaseDate())) / millisPerDay);
+  state = {
+    vehicleName: getVehicleName() || '',
+    leaseDate: getLeaseDate() || '',
+    initialMileage: getInitialMileage() || 0,
+    todayMileage: getTodayMileage() || 0,
+    term: getLeaseTerm() || 0,
+    allotment: getMileageAllotment() || 0
   };
 
-  const leaseDays = () => {
-    return 365 * getLeaseTerm() / 12;
+  constructor(props) {
+    super(props);
+  }
+
+  changeAllotment = e => {
+    setMileageAllotment(e.target.value);
+    this.setState({
+      allotment: e.target.value
+    })
   };
 
-  const milesAllottedPerDay = () => {
-    return getMileageAllotment() / leaseDays();
+  changeTerm = e => {
+    setLeaseTerm(e.target.value);
+    this.setState({
+      term: e.target.value
+    })
   };
 
-  const milesAllotted = () => {
-    return milesAllottedPerDay() * numberOfDays();
+  changeMileage = e => {
+    setInitialMileage(e.target.value);
+    this.setState({
+      initialMileage: e.target.value
+    });
   };
 
-  const milesDriven = () => {
-    return getTodayMileage() - getInitialMileage();
+  changeToday = e => {
+    setTodayMileage(e.target.value);
+    this.setState({
+      todayMileage: e.target.value
+    });
   };
 
-  const milesOverLimit = () => {
-    return milesDriven() - milesAllotted();
+  changeName = e => {
+    setVehicleName(e.target.value);
+    this.setState({
+      vehicleName: e.target.value
+    })
   };
 
-  const daysOverLimit = () => {
-    return milesOverLimit() / milesAllottedPerDay();
+  changeDate = e => {
+    setLeaseDate(e.target.value);
+    this.setState({
+      leaseDate: e.target.value
+    })
   };
 
-  const averageMilesPerDay = () => {
-    return milesDriven() / numberOfDays();
-  };
-
-  const expectedMiles = () => {
-    return averageMilesPerDay() * leaseDays();
-  };
-
-  return (
-    <div>
-      <div>
-        <span className="big">{numberOfDays()}</span><span> days since start of lease.</span>
-      </div>
-      <div>
-        <span className="big">{Math.round(milesAllottedPerDay())}</span><span> miles allotted per day.</span>
-      </div>
-      <div>
-        <span className="big">{Math.round(milesAllotted())}</span><span> total miles allotted.</span>
-      </div>
-      <div>
-        <span className="big">{milesDriven()}</span><span> miles driven.</span>
-      </div>
-      { milesDriven() < milesAllotted() ?
-        <div>Congratulations, you are under the allotted mileage. Happy Driving!</div> :
-        <div>
-          <span className="warning">Warning</span>, you are over the allotted mileage  by <span className="big">{Math.round(milesOverLimit())}</span> miles.
-          <div>
-            This is equivalent to about <span className="big">{Math.round(daysOverLimit())}</span> days worth of driving. Slow down!
-          </div>
-          <div>
-            You have driven an average of <span className="big">{Math.round(averageMilesPerDay())}</span> miles per day.
-          </div>
+  render() {
+    return (
+      <div className="tracker">
+        <div className="today leasedata">
+          <label>
+            Today's Mileage
+            <input type="text" value={this.state.todayMileage} onChange={this.changeToday}/>
+          </label>
         </div>
-      }
-      <div>
-        At the present rate you will have driven <span className="big">{Math.round(expectedMiles())}</span> miles at end of lease.
+        <div className="leasedata">
+          <label>
+            Name of Vehicle
+            <input type="text" value={this.state.vehicleName} onChange={this.changeName}/>
+          </label>
+        </div>
+        <div className="leasedata">
+          <label>
+            Date of Lease
+            <input type="date" value={this.state.leaseDate} onChange={this.changeDate}/>
+          </label>
+        </div>
+        <div className="leasedata">
+          <label>
+            Initial Mileage
+            <input type="text" value={this.state.initialMileage} onChange={this.changeMileage}/>
+          </label>
+        </div>
+        <div className="leasedata">
+          <label>
+            Term Of Lease (Months)
+            <input type="text" value={this.state.term} onChange={this.changeTerm}/>
+          </label>
+        </div>
+        <div className="leasedata">
+          <label>
+            Lease Mileage Allotment
+            <input type="text" value={this.state.allotment} onChange={this.changeAllotment}/>
+          </label>
+        </div>
+        <Results
+          today={this.state.todayMileage}
+          date={this.state.leaseDate}
+          initial={this.state.initialMileage}
+          term={this.state.term}
+          allotment={this.state.allotment}
+        />
       </div>
-    </div>
-  )
-};
+    )
 
-export default Lease;
+  }
+}
 
+export default Config;

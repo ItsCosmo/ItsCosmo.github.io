@@ -2,6 +2,13 @@
   .banner {
     height: 150px;
     background-image: url(/banner.jpg);
+
+    .logo {
+      height: 150px;
+      background-image: url(/kleimeyer-group.png);
+      background-repeat: no-repeat;
+    }
+
   }
 
   ul {
@@ -25,5 +32,11 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 423px) {
+  .logo {
+    background-size: 100% auto;
   }
 }
