@@ -8,7 +8,7 @@ class Header extends Component {
   render() {
     return (
       <div className="header">
-        <div className="banner" style={{backgroundImage: 'url(banner.jpg)'}}  />
+        <div className="banner" />
         <ul>
           <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
           <li><Link to="/auto" activeClassName="active">Auto</Link></li>
