@@ -7,12 +7,8 @@ class Header extends Component {
 
   render() {
     return (
-      <div className="home">
-        <div className="header">
-          <div>The Kleimeyer Group</div>
-          <div className="tagline">representing excellence since 1959</div>
-        </div>
-
+      <div className="header">
+        <div className="banner" style={{backgroundImage: 'url(banner.jpg)'}}  />
         <ul>
           <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
           <li><Link to="/auto" activeClassName="active">Auto</Link></li>
