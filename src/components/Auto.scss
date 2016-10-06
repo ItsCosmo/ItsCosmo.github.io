@@ -25,7 +25,6 @@
     // flex layout parts
     display: flex;
     flex-direction: column;
-    flex-flow: flex-start;
     align-items: center;
   }
 
@@ -67,5 +66,80 @@
     color: white;
     padding: 0.25rem;
     border-radius: 0.5rem;
+  }
+
+  .selector {
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        display: inline;
+        list-style-type: none;
+        margin: 0;
+        border: 1px solid antiquewhite;
+        padding: 0.5rem;
+
+        &.active {
+          background-color: antiquewhite;
+        }
+
+        &.active a {
+          color: #444;
+        }
+
+        a {
+          display: inline-block;
+          padding: 1rem;
+          text-decoration: none;
+          font-weight: bold;
+          color: antiquewhite;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 423px) {
+  .leaseapp {
+
+    .leasedata {
+      width: 100%;
+      input {
+        width: 100%;
+      }
+    }
+
+    .selector {
+      width: 100%;
+
+      ul {
+        margin: 0.25rem 0;
+        padding: 0;
+        width: 100%;
+
+        li {
+          display: block;
+          list-style-type: none;
+          margin: 0.25rem 0;
+          border: 1px solid antiquewhite;
+
+          &.active {
+            background-color: antiquewhite;
+          }
+
+          &.active a {
+            color: #444;
+          }
+
+          a {
+            display: block;
+            padding: 0.25rem;
+            text-decoration: none;
+            font-weight: bold;
+            color: antiquewhite;
+          }
+        }
+      }
+    }
   }
 }

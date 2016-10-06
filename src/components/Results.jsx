@@ -2,7 +2,7 @@ import React from "react";
 
 const millisPerDay = 24 * 60 * 60 * 1000;
 
-const Lease = ({today, date, initial, term, allotment}) => {
+const Results = ({today, date, initial, term, allotment}) => {
 
   const numberOfDays = () => {
     return Math.ceil((Date.now() - Date.parse(date)) / millisPerDay);
@@ -77,5 +77,5 @@ const Lease = ({today, date, initial, term, allotment}) => {
   )
 };
 
-export default Lease;
+export default Results;
 
