@@ -9,7 +9,7 @@ import {
   getLeaseData,
 } from './configuration';
 
-class Config extends Component {
+class Lease extends Component {
 
   constructor(props) {
     super(props);
@@ -83,37 +83,37 @@ class Config extends Component {
         <Selector id={this.state.vehicleId} onClick={this.changeId}/>
         <div className="today leasedata">
           <label>
-            Today's Mileage
+            Today's odometer reading
             <input type="text" value={this.state.todayMileage} onChange={this.changeToday}/>
           </label>
         </div>
         <div className="leasedata">
           <label>
-            Name of Vehicle
+            Vehicle name
             <input type="text" value={this.state.vehicleName} onChange={this.changeName}/>
           </label>
         </div>
         <div className="leasedata">
           <label>
-            Date of Lease
+            Date of lease
             <input type="date" value={this.state.leaseDate} onChange={this.changeDate}/>
           </label>
         </div>
         <div className="leasedata">
           <label>
-            Initial Mileage
+            Initial mileage
             <input type="text" value={this.state.initialMileage} onChange={this.changeMileage}/>
           </label>
         </div>
         <div className="leasedata">
           <label>
-            Term Of Lease (Months)
+            Term of lease (months)
             <input type="text" value={this.state.term} onChange={this.changeTerm}/>
           </label>
         </div>
         <div className="leasedata">
           <label>
-            Lease Mileage Allotment
+           Mileage limit
             <input type="text" value={this.state.allotment} onChange={this.changeAllotment}/>
           </label>
         </div>
@@ -130,4 +130,4 @@ class Config extends Component {
   }
 }
 
-export default Config;
+export default Lease;

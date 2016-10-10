@@ -40,6 +40,21 @@ const Results = ({today, date, initial, term, allotment}) => {
     return averageMilesPerDay() * leaseDays();
   };
 
+  const percentageOfAllotment = () => {
+    const pct = Math.abs(Math.round(10 * (Math.round(1000*expectedMiles()/allotment) / 10 - 100)) / 10);
+
+    if (expectedMiles() < allotment) {
+      return `${pct}% under limit`;
+    }
+
+    if (expectedMiles() > allotment) {
+      return `${pct}% over limit`;
+    }
+
+    return 'perfect!'
+
+  };
+
   return (
     <div className="results">
       <div>
@@ -49,7 +64,7 @@ const Results = ({today, date, initial, term, allotment}) => {
         <span className="big">{Math.round(milesAllottedPerDay())}</span><span> miles allotted per day.</span>
       </div>
       <div>
-        <span className="big">{Math.round(milesAllotted())}</span><span> total miles allotted.</span>
+        <span className="big">{Math.round(milesAllotted())}</span><span> total miles allotted so far.</span>
       </div>
       <div>
         <span className="big">{milesDriven()}</span><span> miles driven.</span>
@@ -70,8 +85,7 @@ const Results = ({today, date, initial, term, allotment}) => {
       }
       <div>
         At the present rate you will have driven <span className="big">{Math.round(expectedMiles())}</span> miles at
-        end
-        of lease.
+        end of lease ({percentageOfAllotment()}).
       </div>
     </div>
   )
