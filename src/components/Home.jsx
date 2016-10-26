@@ -9,7 +9,9 @@ class Home extends Component {
 
   render() {
     return (
-      <div></div>
+      <div>
+        <p>While our designers are busy readying brand new content, please check out our Auto Leaser Tracker, available now.</p>
+      </div>
     )
   }
 }

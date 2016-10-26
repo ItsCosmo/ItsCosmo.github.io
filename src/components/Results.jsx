@@ -41,7 +41,7 @@ const Results = ({today, date, initial, term, allotment}) => {
   };
 
   const percentageOfAllotment = () => {
-    const pct = Math.abs(Math.round(10 * (Math.round(1000*expectedMiles()/allotment) / 10 - 100)) / 10);
+    const pct = Math.abs(Math.round(10 * (Math.round(1000 * expectedMiles() / allotment) / 10 - 100)) / 10);
 
     if (expectedMiles() < allotment) {
       return `${pct}% under limit`;
@@ -55,38 +55,48 @@ const Results = ({today, date, initial, term, allotment}) => {
 
   };
 
+  const daysPct = Math.round(100 * numberOfDays() / leaseDays());
+  const allotPct = Math.round(100 * milesDriven() / milesAllotted());
+
   return (
     <div className="results">
-      <div>
-        <span className="big">{numberOfDays()}</span><span> days since start of lease.</span>
-      </div>
-      <div>
-        <span className="big">{Math.round(milesAllottedPerDay())}</span><span> miles allotted per day.</span>
-      </div>
-      <div>
-        <span className="big">{Math.round(milesAllotted())}</span><span> total miles allotted so far.</span>
-      </div>
-      <div>
-        <span className="big">{milesDriven()}</span><span> miles driven.</span>
+      <div style={{width: '50%', borderRight: '1px solid #ccc'}}>
+        <div>
+          <span className="big">{numberOfDays()}</span><span> days since start of lease.</span>
+          <div style={{backgroundColor: 'blue', width: `${daysPct}%`, height: '1rem'}}></div>
+        </div>
+        <div>
+          <span className="big">{Math.round(milesAllottedPerDay())}</span><span> miles allotted per day.</span>
+        </div>
+        <div>
+          <span className="big">{Math.round(milesAllotted())}</span><span> total miles allotted so far.</span>
+        </div>
+        <div style={{marginBottom: '1rem'}}>
+          <span className="big">{milesDriven()}</span><span> miles driven.</span>
+          <div style={{backgroundColor: 'blue', width: `${allotPct}%`, height: '1rem'}}></div>
+        </div>
       </div>
       { milesDriven() < milesAllotted() ?
-        <div>Congratulations, you are under the allotted mileage. Happy Driving!</div> :
         <div>
-          <span className="warning">Warning</span>, you are over the allotted mileage by <span
-          className="big">{Math.round(milesOverLimit())}</span> miles.
-          <div>
+          <div className="congrats">Congratulations!</div>
+          <p>You are under the allotted mileage by <span className="big">{Math.round(Math.abs(milesOverLimit()))}</span> miles. Happy Driving!</p>
+        </div> :
+        <div>
+          <div className="warning">Warning</div>
+          <p>You are over the allotted mileage by <span className="big">{Math.round(milesOverLimit())}</span> miles.</p>
+          <p>
             This is equivalent to about <span className="big">{Math.round(daysOverLimit())}</span> days worth of
             driving. Slow down!
-          </div>
-          <div>
-            You have driven an average of <span className="big">{Math.round(averageMilesPerDay())}</span> miles per day.
-          </div>
+          </p>
         </div>
       }
-      <div>
+      <p>
+        You have driven an average of <span className="big">{Math.round(averageMilesPerDay())}</span> miles per day.
+      </p>
+      <p>
         At the present rate you will have driven <span className="big">{Math.round(expectedMiles())}</span> miles at
         end of lease ({percentageOfAllotment()}).
-      </div>
+      </p>
     </div>
   )
 };
