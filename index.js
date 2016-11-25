@@ -22,7 +22,7 @@ render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
-      <Route path="auto" component={Auto} />
+      <Route path="/auto" component={Auto} />
     </Route>
   </Router>
 ), document.getElementById("root"));
