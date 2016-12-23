@@ -20,9 +20,8 @@ class App extends Component {
 
 render((
   <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={Home} />
-      <Route path="/auto" component={Auto} />
-    </Route>
+    <Route path="/" component={App}/>
+    <Route path="/home" component={Home}/>
+    <Route path="/auto" component={Auto}/>
   </Router>
 ), document.getElementById("root"));
