@@ -13,7 +13,7 @@ class Header extends Component {
         </div>
         <ul>
           <li><IndexLink to="/" activeClassName="active">Home</IndexLink></li>
-          <li><Link to="/auto" activeClassName="active">Lease</Link></li>
+          <li><Link to="/auto" activeClassName="active">Auto</Link></li>
         </ul>
       </div>
     )

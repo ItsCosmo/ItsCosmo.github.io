@@ -21,6 +21,7 @@ class App extends Component {
 render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>
+      <IndexRoute component={Home} />
       <Route path="/home" component={Home}/>
       <Route path="/auto" component={Auto}/>
     </Route>
