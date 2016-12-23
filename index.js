@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {render} from "react-dom";
-import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
+import {Router, Route, Link, hashHistory, IndexRoute} from 'react-router';
 import Auto from "./src/components/Auto";
 import Home from "./src/components/Home";
 import Header from "./src/components/Header";
@@ -19,7 +19,7 @@ class App extends Component {
 }
 
 render((
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="/auto" component={Auto} />
