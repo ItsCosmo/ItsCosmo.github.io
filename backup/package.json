@@ -1,0 +1,31 @@
+{
+  "name": "lease",
+  "version": "1.0.0",
+  "description": "Auto Lease Mileage Tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "webpack-dev-server --progress --colors",
+    "build": "webpack -p --progress --config ./webpack.production.config.js"
+  },
+  "author": "Paul Kleimeyer",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-router": "^2.8.1",
+    "webpack": "^1.13.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "css-loader": "^0.25.0",
+    "node-sass": "^3.10.1",
+    "sass-loader": "^4.0.2",
+    "static-site-generator-webpack-plugin": "^3.0.0",
+    "style-loader": "^0.13.1"
+  }
+}
