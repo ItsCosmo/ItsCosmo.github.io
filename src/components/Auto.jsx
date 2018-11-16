@@ -11,7 +11,7 @@ class Auto extends Component {
   };
 
   componentDidMount() {
-    document.title = "The Kleimeyer Group - Auto"
+    document.title = "The Kleimeyer Group - Lease"
   }
 
   toggleHelp = () => {
@@ -29,7 +29,7 @@ class Auto extends Component {
         </div>
         { this.state.showInstructions &&
         <div className="instructions">
-          <h1>How to use Auto Lease Tracker</h1>
+          <h1>How to use the Auto Lease Tracker</h1>
           <p>Most vehicle lease contracts specify a mileage limit which you must stay within in order to avoid a
             penatly. Auto Lease Tracker helps you keep track of the mileage you are putting on your leased
             vehicle so you will know at a glance if you are driving at a rate which will put you over the
