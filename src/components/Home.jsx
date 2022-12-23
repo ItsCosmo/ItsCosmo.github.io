@@ -10,7 +10,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <p>While our slow designers are busy readying brand new content, please check out our Auto Leaser Tracker, available now.</p>
+        <p>While our busy designers are busily readying brand new content, please check out our Auto Leaser Tracker, available now.</p>
       </div>
     )
   }
