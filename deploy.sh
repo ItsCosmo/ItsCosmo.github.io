@@ -16,12 +16,12 @@ echo > .nojekyll
 echo 'www.kleimeyer.com' > CNAME
 
 git init
-git checkout -B main
+git checkout -B pages-dist
 git add -A
 git commit -m 'deploy'
 
 # if you are deploying to https://<USERNAME>.github.io
-git push -f git@github.com:ItsCosmo/ItsCosmo.github.io.git main:pages-dist
+git push -f git@github.com:ItsCosmo/ItsCosmo.github.io.git pages-dist
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
 # git push -f git@github.com:<USERNAME>/<REPO>.git main:gh-pages
