@@ -1,17 +1,35 @@
 import { useState } from 'react'
-import reactLogo from '../assets/react.svg'
-import './App.scss'
-import Header from './Header'
+import { Grommet, grommet, Page, PageContent, PageHeader } from 'grommet';
+import { deepMerge } from 'grommet/utils'
+import MainHeader from './MainHeader'
 import MainContent from './MainContent'
+
+const theme = deepMerge(grommet, {
+  global: {
+    font: {
+      family: "Inter, Avenir, Helvetica, Arial, sans-serif",
+      size: "16px",
+      height: "24px",
+      weight: "normal"
+    },
+  },
+  anchor: {
+    fontWeight: "normal"
+  }
+});
 
 const App = () => {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <Header />
-      <MainContent />
-    </div>
+    <Grommet theme={theme} full themeMode="auto">
+      <Page kind="narrow">
+        <MainHeader />
+        <PageContent>
+          <MainContent />
+        </PageContent>
+      </Page>
+    </Grommet>
   )
 }
 
