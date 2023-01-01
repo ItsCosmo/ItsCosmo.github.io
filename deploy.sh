@@ -6,6 +6,9 @@ set -e
 # build
 npm run build
 
+# copy custom 404
+cp 404.html dist/404.html
+
 # navigate into the build output directory
 cd dist
 

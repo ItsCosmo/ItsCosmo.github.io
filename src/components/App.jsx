@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { Grommet, grommet, Page, PageContent, PageHeader } from 'grommet';
+import { Grommet, grommet, Page, PageContent } from 'grommet';
+import { BrowserRouter, useNavigate, useLocation  } from 'react-router-dom'
 import { deepMerge } from 'grommet/utils'
-import MainHeader from './MainHeader'
-import MainContent from './MainContent'
+import GlobalHeader from './GlobalHeader'
+import ChildRoutes from './ChildRoutes';
 
 const theme = deepMerge(grommet, {
   global: {
@@ -19,14 +20,12 @@ const theme = deepMerge(grommet, {
 });
 
 const App = () => {
-  const [count, setCount] = useState(0)
-
   return (
     <Grommet theme={theme} full themeMode="auto">
       <Page kind="narrow">
-        <MainHeader />
+        <GlobalHeader />
         <PageContent>
-          <MainContent />
+          <ChildRoutes />
         </PageContent>
       </Page>
     </Grommet>
