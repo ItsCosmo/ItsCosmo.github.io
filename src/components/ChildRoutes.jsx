@@ -8,7 +8,11 @@ import NoMatch from './NoMatch';
 import RecipeCategory from './RecipeCategory'
 import Recipe from './Recipe'
 
-const ChildRoutes = () => (
+const ChildRoutes = () => { 
+
+  console.log('*** PATH=', window.location.pathname)
+  
+  return (
   <Routes>
     <Route exact path="/" element={<Home />} />
     <Route path="/about" element={<About />} />
@@ -18,6 +22,6 @@ const ChildRoutes = () => (
     <Route path="/recipe/:category/:num" element={<Recipe />} />
     <Route path="*" element={<NoMatch />} />
   </Routes>
-)
+)}
 
 export default ChildRoutes

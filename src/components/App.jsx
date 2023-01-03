@@ -15,7 +15,11 @@ const theme = deepMerge(grommet, {
     },
   },
   anchor: {
-    fontWeight: "normal"
+    fontWeight: "normal",
+    color: {
+      dark: "#f8f8f8",
+      light: "black"
+    }
   }
 });
 

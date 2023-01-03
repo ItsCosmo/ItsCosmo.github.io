@@ -2,13 +2,19 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Box, Image, Stack, Heading, Card, CardHeader, CardBody, Text } from 'grommet'
 
-import { categories } from "../categories"
+import categories from "../categories"
+import Breadcrumb from './Breadcrumb'
 
 const RecipeMain = () => { 
     const navigate = useNavigate();
+    const crumbs = [
+        { tag: "Home", link: "/" },
+        { tag: "Recipes" }
+    ]
 
     return (
         <Box direction="column">
+            <Breadcrumb crumbs={crumbs}/>
             <Stack>
                 <Image src="/recipe/cover-final.jpg" style={{ maxWidth: "100%" }}/>
                 <Box pad="small" direction="column" justify="between" height="100%">

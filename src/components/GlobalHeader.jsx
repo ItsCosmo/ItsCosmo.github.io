@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 import { Box, Image, Anchor, Nav, ResponsiveContext } from 'grommet';
 import { Link, useNavigate } from 'react-router-dom'
 
+import Breadcrumb from './Breadcrumb'
+
 const navItems = [
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
@@ -21,21 +23,23 @@ const MainHeader = (props) => {
 );     
 
   return (
-      <Box
-        direction="row"
-        justify="between"
-        align="center"
-        background={{ dark: "dark-1", light: "#faf9f6" }}
-        pad={{ left: "medium", right: "medium", vertical: "small" }}
-      >
-        { title }
-        <Nav direction="row">
-          {navItems.map((item) => (
-            <Link to={item.href} key={item.label}>
-              <Anchor as="span" label={item.label} />
-            </Link>
-          ))}
-        </Nav>
+      <Box direction="column">
+        <Box
+          direction="row"
+          justify="between"
+          align="center"
+          background={{ dark: "dark-1", light: "#faf9f6" }}
+          pad={{ left: "medium", right: "medium", vertical: "small" }}
+        >
+          { title }
+          <Nav direction="row">
+            {navItems.map((item) => (
+              <Link to={item.href} key={item.label}>
+                <Anchor as="span" label={item.label} />
+              </Link>
+            ))}
+          </Nav>
+        </Box>
       </Box>
   )
 }

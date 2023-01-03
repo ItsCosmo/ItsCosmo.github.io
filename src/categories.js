@@ -1,4 +1,4 @@
-export const categories = [
+const categories = [
   {
     key: "main",
     name: "Main Dishes",
@@ -28,3 +28,5 @@ export const categories = [
     description: "Snacks, side-dishes and desserts",
   }
 ]
+
+export default categories
