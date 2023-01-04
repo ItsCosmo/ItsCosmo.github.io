@@ -22,7 +22,7 @@ const breakfast = [
       "Fold occasionally until eggs reach desired done-ness"
     ],
     notes: [
-      "Some people prefer to add about 1 tsp of milk to the beaten eggs, but I like them better with no milk at all"
+      "Some people prefer to add about 1 tsp of milk to the beaten eggs, but I like them better with no milk at all (PK)"
     ],
     contributor: "Paul Kleimeyer"
   },
@@ -54,7 +54,7 @@ const breakfast = [
       "Toast until brown"
     ],
     notes: [
-      "Watch carefully - it doesn't take long to brown second side. Believe me, I know - I've burned a bunch of it!"
+      "Watch carefully - it doesn't take long to brown second side. Believe me, I know - I've burned a bunch of it! (HK)"
     ],
     contributor: "Hazel Kleiemeyer (Grammy)"
   },

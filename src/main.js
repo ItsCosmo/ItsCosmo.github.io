@@ -142,30 +142,11 @@ const main = [
     ],
     notes: [
       "American cheese works best, although I have used cheddar. Sometimes, I add black olives and/or cashews.",
-      "I now use tuna packed in water, low fat cream of mushroom soup, and not so much cheese, since it's loaded with fat.",
-      "Note from editor: I like cheddar cheese, black olives and full-on cream of mushroom soup (PK)"
+      "I now use tuna packed in water, low fat cream of mushroom soup, and not so much cheese, since it's loaded with fat. (HK)",
+      "Note from editor: I like cheddar cheese, black olives and full-on cream of mushroom soup. (PK)"
     ],
     contributor: "Hazel Kleimeyer (Grammy)"
   },
-  {
-    name: "",
-    image: "",
-    time: {
-      prep: 0,
-      cook: 0
-    },
-    ingredients: [
-      {
-        name: "",
-        amount: ""
-      }
-    ],
-    directions: [
-    ],
-    notes: [
-    ],
-    contributor: ""
-  },  
 ]
 
 export default main
