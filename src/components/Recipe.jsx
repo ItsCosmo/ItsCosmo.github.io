@@ -1,24 +1,22 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { Box, Image, Heading, Text } from 'grommet'
-import categories from '../categories'
-import recipes from '../recipes'
-import { minToString } from '../utils'
 
+import recipes from '../recipes/recipes'
+import { minToString } from '../utils'
 import Breadcrumb from './Breadcrumb'
 import RecipeCategory from './RecipeCategory'
 
 const Recipe = () => {
   const { category, num } = useParams()
-  const recipe = recipes[category][num]
+  const recipe = recipes[category].recipes[num]
   const totalMinutes = recipe.time.prep + recipe.time.cook
   const totalTime = minToString(totalMinutes)
-  const categoryName = categories.filter((value) => value.key === category)[0]["name"]
 
   const crumbs = [
     { tag: "Home", link: "/" },
     { tag: "Recipes", link: "/recipe" },
-    { tag: categoryName, link: `/recipe/${category}` },
+    { tag: recipes[category].name, link: `/recipe/${category}` },
     { tag: recipe.name }
   ]
 
@@ -34,20 +32,20 @@ const Recipe = () => {
           <Text>Total Time: { minToString(totalMinutes) }</Text>
         </Box>
         <Heading level={4}>Ingredients</Heading>
-        { recipe.ingredients.map((ingredient) => (
-          <Box direction="row">
+        { recipe.ingredients.map((ingredient, index) => (
+          <Box direction="row" key={index}>
             <Text>{ingredient.name}&nbsp;</Text>
             <Text color="grey"><i>{ingredient.amount}</i></Text>
           </Box>
         ))}
         <Heading level={4}>Directions</Heading>
-        { recipe.directions.map((step) => (
-            <Text margin={{ bottom: "xsmall"}}>{step}</Text>
+        { recipe.directions.map((step, index) => (
+            <Text margin={{ bottom: "xsmall"}} key={index}>{step}</Text>
         ))}
         { recipe.notes.length > 0 
           ? <Box pad="small" border="all" background="Cornsilk" margin={{ top: "small", bottom: "medium"}}>
-            { recipe.notes.map((note) => (
-              <Text color="#34282c" margin={{ top: "xsmall"}}><i>{note}</i></Text>
+            { recipe.notes.map((note, index) => (
+              <Text color="#34282c" margin={{ top: "xsmall"}} key={index}><i>{note}</i></Text>
             ))}
           </Box>
           : <Box height="75px" />

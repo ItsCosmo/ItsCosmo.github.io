@@ -3,11 +3,9 @@ import breakfast from "./breakfast"
 import holiday from "./holiday"
 import other from "./other"
 
-const recipes = {
+export default {
   main,
   breakfast,
   holiday,
   other
 }
-
-export default recipes

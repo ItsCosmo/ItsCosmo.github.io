@@ -7,7 +7,7 @@ const Breadcrumb = ({ crumbs }) => {
     <Box direction="row">
       { crumbs.map((crumb, index) => {
         return (
-          <Box direction="row">
+          <Box direction="row" key={crumb.tag}>
             { index > 0 && <Text>&nbsp;&gt;&nbsp;</Text> }
             { crumb.link 
               ? <Link to={crumb.link}><Anchor as="span">{crumb.tag}</Anchor></Link>

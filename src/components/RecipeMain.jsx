@@ -2,7 +2,8 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Box, Image, Stack, Heading, Card, CardHeader, CardBody, Text } from 'grommet'
 
-import categories from "../categories"
+import recipes from "../recipes/recipes"
+
 import Breadcrumb from './Breadcrumb'
 
 const RecipeMain = () => { 
@@ -25,18 +26,18 @@ const RecipeMain = () => {
                 </Box>
             </Stack>
             <Box direction="row" pad={{ top: "small" }} gap="xsmall">
-                { categories.map((category) => (
-                  <Card height="275px" width="small" background="light-1" onClick={() => {navigate(`/recipe/${category.key}`)}}>
+                { Object.keys(recipes).map((category, index) => (
+                  <Card height="275px" width="small" background="light-1" onClick={() => {navigate(`/recipe/${recipes[category].key}`)}} key={index}>
                     <CardHeader
                         color="white"
-                        background={{ image: `url(/recipe/${category.image})`, color: category.background, size: "contain" }}
+                        background={{ image: `url(/recipe/${recipes[category].image})`, color: recipes[category].background, size: "contain" }}
                         height="xsmall"
                     />
                     <CardBody
                         pad="small"
                     >
-                        <Heading level={3}>{category.name}</Heading>
-                        <Text>{category.description}</Text>
+                        <Heading level={3}>{recipes[category].name}</Heading>
+                        <Text>{recipes[category].description}</Text>
                     </CardBody>
                   </Card>
                 ))}

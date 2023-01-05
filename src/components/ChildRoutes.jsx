@@ -9,9 +9,6 @@ import RecipeCategory from './RecipeCategory'
 import Recipe from './Recipe'
 
 const ChildRoutes = () => { 
-
-  console.log('*** PATH=', window.location.pathname)
-  
   return (
   <Routes>
     <Route exact path="/" element={<Home />} />
