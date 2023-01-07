@@ -18,9 +18,16 @@ const RecipeCategory = () => {
   return (
     <Box direction="column" >
       <Breadcrumb crumbs={crumbs} />
-      <Box direction="row" pad={{ top: "small" }} gap="xsmall">
+      <Box direction="row" pad={{ top: "small" }} gap="xsmall" wrap={true}>
         { recipes[category].recipes.map((recipe, index) => (
-          <Card height="275px" width="small" background="light-1" onClick={() => { navigate(`/recipe/${category}/${index}`)}} key={index}>
+          <Card 
+            height="275px" 
+            width="small" 
+            background="light-1" 
+            onClick={() => { navigate(`/recipe/${category}/${index}`)}} 
+            key={index}
+            margin={{ bottom: "small" }}
+          >
             <CardHeader
                 color="white"
                 background={{ image: `url(/recipe/${recipe.image})`, color: "CornflowerBlue", size: "contain" }}

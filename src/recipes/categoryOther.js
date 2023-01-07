@@ -1,6 +1,8 @@
 import jalapenoJelly from "./jalapenoJelly"
 import artichokeSpread from "./artichokeSpread"
 import doubledEggs from "./doubledEggs"
+import bakedBeans from "./bakedBeans"
+import potatoSalad from "./potatoSalad"
 
 export default {
   key: "other",
@@ -11,6 +13,8 @@ export default {
   recipes: [
     jalapenoJelly,
     artichokeSpread,
-    doubledEggs
+    doubledEggs,
+    bakedBeans,
+    potatoSalad
   ]
 }
